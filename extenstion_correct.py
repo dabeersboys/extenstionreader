@@ -1,3 +1,5 @@
+#Thanks to Northloopforensics for reviewing my code and where it was originally failing.
+
 import os
 
 def add_file_extension(filename):
