@@ -1,6 +1,7 @@
 #Thanks to Northloopforensics for reviewing my code and where it was originally failing.
 
 import os
+import PySimpleGUI as sg
 
 def add_file_extension(filename):
     jpg_header = b'\xFF\xD8\xFF\xE0'
@@ -42,6 +43,32 @@ def process_directory(directory_path):
 
 
 if __name__ == "__main__":
-    direct_path = input("What is the path to the directory to search? ")
+    #direct_path = input("What is the path to the directory to search? ")
     # print(directory_path)
     process_directory(direct_path)
+
+#GUI framework
+sg.theme('lightgray6')  #GUI color scheme
+
+layout = [[sg.Text("AutoExtension", font=('Impact',24))],
+        [sg.Text('Point this tool to a directory with files without a file extenstion. If it is identified as a JPG or PNG file it will rename the file with the appropriate extension.',font=('Arial', 12))],                                                                        #Cutting Tab Window
+        [sg.Text('        '), sg.Text('Select the propert directory:', font=('Arial', 12))],
+        [sg.Text('        '),sg.Input("Source Directory", font=('Arial', 12), key='SOURCE',), sg.FolderBrowse(key='SOURCE'), sg.Text(' '*10)], 
+        [sg.Text('')],
+        [sg.Text('')],
+        [sg.Text('        '),sg.Button('Correct the files',font=('Arial-bold'), key='Ok')],
+        [sg.Text('')],]
+
+
+#Connecting GUI to Scripts
+# Create the Window
+window = sg.Window('Extension Adder', layout, no_titlebar=False, alpha_channel=1, grab_anywhere=False)
+
+# Event Loop to process "events" and get the "values" of the inputs
+while True:
+    event, values = window.read()
+    if event == sg.WIN_CLOSED or event == 'Exit': # if user closes window or clicks cancel
+        break
+    if event == 'Ok':
+       add_file_extension(input_folder=values["SOURCE"], output_folder=values['OUT'])
+       sg.popup("Process Complete",font=("Arial", 12))
