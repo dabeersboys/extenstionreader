@@ -39,5 +39,5 @@ def process_directory(directory_path):
 
 
 if __name__ == "__main__":
-    directory_path = input("What is the path to the directory to search?")
+    directory_path = input("What is the path to the directory to search? ")
     process_directory(directory_path)
