@@ -1,4 +1,4 @@
-# extenstionreade
+# extenstionread
 This script is designed to read a directory for files that do not have a file extension and then rename the file with the appropriate file extenstion. 
 The purpose of this script came from a retrun from a cloud provider who provided many files to an investigator with no way or reading them natively due to the lack of a file extension
 . 
