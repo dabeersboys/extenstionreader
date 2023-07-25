@@ -1,4 +1,4 @@
-#Thanks to Northloopforensics for reviewing my code and where it was originally failing.
+#Thanks to Northloopforensics for reviewing my code and identifying and mentoring me where it was originally failing.
 
 import os
 
